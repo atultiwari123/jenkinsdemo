@@ -24,7 +24,7 @@ node {
     def CONNECTED_APP_CONSUMER_KEY="3MVG9YDQS5WtC11rw.7q_jJ8RGZyjjHwBON9IJd3A0LEvuY1OJwBrgOR8_qCMeDeISp_3gyScR36gBMkKKJAm"
     def JWT_CRED_ID_DH = env.JWT_CRED_ID_DH   
     def SFDC_LOGIN_URL = "https://login.salesforce.com"
-    def HUB_ORG_USER_NAME="demodevhubaccount123@cognizant.com"
+    def HUB_ORG_DH="demodevhubaccount123@cognizant.com"
     def PERMISSION_SET = "Geolocation"
    
 
@@ -39,7 +39,7 @@ node {
         stage('Authorize hub org and set default CI scratch org') 
         {
 			
-			rc = sh returnStatus: true, script: "'${toolbelt}/sfdx' force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG_USER_NAME} --jwtkeyfile '${jwt_key_file}' --setdefaultdevhubusername --instanceurl ${SFDC_LOGIN_URL}"
+			rc = sh returnStatus: true, script: "'${toolbelt}/sfdx' force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG_DH} --jwtkeyfile '${jwt_key_file}' --setdefaultdevhubusername --instanceurl ${SFDC_LOGIN_URL}"
            
             if (rc != 0) { error 'hub org authorization failed' }	
             
