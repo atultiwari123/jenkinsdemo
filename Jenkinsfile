@@ -39,12 +39,12 @@ node {
         stage('Authorize hub org and set default CI scratch org') 
         {
 			
-			rc = sh returnStatus: true, script: "'${toolbelt}/sfdx' force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG_DH} --jwtkeyfile '${jwt_key_file}' --setdefaultdevhubusername --instanceurl ${SFDC_LOGIN_URL}"
+			rc = sh returnStatus: true, script: "'sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG_DH} --jwtkeyfile '${jwt_key_file}' --setdefaultdevhubusername --instanceurl ${SFDC_LOGIN_URL}"
            
             if (rc != 0) { error 'hub org authorization failed' }	
             
            // need to pull out assigned username
-		   rmsg = sh returnStdout: true, script: "'${toolbelt}/sfdx' force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
+		   rmsg = sh returnStdout: true, script: "sfdx force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
 		   
 		   //printf rmsg		   
 		    
