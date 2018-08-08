@@ -39,7 +39,7 @@ node {
         stage('Authorize hub org and set default CI scratch org') 
         {
 			
-			rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid 3MVG9YDQS5WtC11rw.7q_jJ8RGZyjjHwBON9IJd3A0LEvuY1OJwBrgOR8_qCMeDeISp_3gyScR36gBMkKKJAm --username demodevhubaccount123@cognizant.com --jwtkeyfile D:\Development_Avecto\openssl-0.9.8e_X64\bin --setdefaultdevhubusername --instanceurl https://login.salesforce.com"
+			rc = sh returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid 3MVG9YDQS5WtC11rw.7q_jJ8RGZyjjHwBON9IJd3A0LEvuY1OJwBrgOR8_qCMeDeISp_3gyScR36gBMkKKJAm --username demodevhubaccount123@cognizant.com --jwtkeyfile '${jwt_key_file}' --setdefaultdevhubusername --instanceurl https://login.salesforce.com"
            
             if (rc != 0) { error 'hub org authorization failed ' }	
             
