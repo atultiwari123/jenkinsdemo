@@ -220,19 +220,19 @@
         <enabled>true</enabled>
     </pageAccesses>
     <tabSettings>
-        <tabs>Broker__c</tabs>
+        <tab>Broker__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tabs>Property_Explorer</tabs>
+        <tab>Property_Explorer</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tabs>Property__c</tabs>
+        <tab>Property__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tabs>Smart_Home</tabs>
+        <tab>Smart_Home</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
